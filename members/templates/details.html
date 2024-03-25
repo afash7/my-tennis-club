@@ -12,11 +12,13 @@
     {% block title %}
         Details about {{ mymembers.firstname }} {{ mymembers.lastname }}
     {% endblock %}
-    <h2>{{ mymember.firstname }}  {{ mymember.lastname }}</h2>
-    <p>phone: {{ mymembers.phone }}</p>
-    <p>Member Since: {{ mymembers.joined_date }}</p>
 
-    <p>Back to <a href="/members">Members</a></p>
+    {% block content %}
+        <h2>{{ mymember.firstname }}  {{ mymember.lastname }}</h2>
+        <p>phone: {{ mymembers.phone }}</p>
+        <p>Member Since: {{ mymembers.joined_date }}</p>
 
+        <p>Back to <a href="/members">Members</a></p>
+    {% endblock %}
 </body>
 </html>
