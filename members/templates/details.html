@@ -6,6 +6,12 @@
     <title>details</title>
 </head>
 <body>
+
+    {% extends "master.html" %}
+
+    {% block title %}
+        Details about {{ mymembers.firstname }} {{ mymembers.lastname }}
+    {% endblock %}
     <h2>{{ mymember.firstname }}  {{ mymember.lastname }}</h2>
     <p>phone: {{ mymembers.phone }}</p>
     <p>Member Since: {{ mymembers.joined_date }}</p>
