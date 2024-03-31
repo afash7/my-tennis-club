@@ -6,6 +6,14 @@
     <title>testing</title>
 </head>
 <body>
+    {% with lastname="Tobias" %}
+        <h1>hello {{ firstname }} {{ lastname }}, how are you?</h1>
+    {% endwith %}
+
+    {% for i in mymembers %}
+        <li>{{ i.firstname }}</li>
+    {% endfor %}
+
     {% for x in fruits %}
         <h1>{{ x }}</h1>
     {% endfor %}
