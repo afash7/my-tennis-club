@@ -6,6 +6,8 @@ from django.template import loader
 
 from .models import Member
 
+from django.db.models import Q
+
 
 def members(request):
     mymembers = Member.objects.all().values()
@@ -30,11 +32,13 @@ def main(request):
 
 
 def testing(request):
+    mydata = Member.objects.filter(Q(firstname='Emil') | Q(firstname='Tobias')).values()
     mymembers = Member.objects.all().values()
     template = loader.get_template('template.html')
     context = {
         'fruits': ['Apple', 'Bnana', 'Cherry'],
         'firstname': 'Linus',
         'mymembers': mymembers,
+        'mymembers_values': mydata,
     }
     return HttpResponse(template.render(context, request))
