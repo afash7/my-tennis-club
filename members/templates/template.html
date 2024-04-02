@@ -6,18 +6,37 @@
     <title>testing</title>
 </head>
 <body>
+    {% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
     {% with lastname="Tobias" %}
         <h1>hello {{ firstname }} {{ lastname }}, how are you?</h1>
     {% endwith %}
 
-    {% for i in mymembers %}
-        <li>{{ i.firstname }}</li>
-    {% endfor %}
+    {% if greeting == 1 %}
+        <h1>Hello</h1>
+    {% else %}
+        <h1>Bye</h1>
+    {% endif %}
+
+    <ul>
+        {% for i in mymembers %}
+            <li>{{ i.firstname }}</li>
+        {% endfor %}
+    </ul>
 
     {% for x in fruits %}
         <h1>{{ x }}</h1>
     {% endfor %}
 
+    {% for j in mymembers %}
+        <h1>{{ x.id }}</h1>
+        <p>
+            {{ j.firstname }}
+            {{ j.lastname }}
+        </p>
+    {% endfor %}
+
     <p>In views.py you can see what the fruits variable looks like.</p>
+
+    {% include 'footer.html' %}
 </body>
 </html>
